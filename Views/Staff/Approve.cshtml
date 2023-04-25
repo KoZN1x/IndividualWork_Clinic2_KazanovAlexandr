@@ -1,0 +1,29 @@
+﻿@model OutpatientCardRequest
+
+@{
+    ViewData["Title"] = "Approve";
+}
+
+<h1>Approve</h1>
+
+<h4>Outpatient card request</h4>
+<hr />
+<div class="text-center">
+    <form asp-controller="Staff" asp-action="Approve" method="post">
+        TreatmentPlan:          <input name="treatmentPlan" type="text" /><br />
+        DoctorID:               <input name="doctorId" type="number" /><br />
+        PatientID:              <input name="patientId" type="number" /><br />
+        <button type="submit">Approve </button>
+        @*<button asp-controller="ClothesShop" asp-action="AddClothes">Add clothes</button>*@
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

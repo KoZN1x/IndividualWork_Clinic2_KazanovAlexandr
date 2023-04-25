@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@model IEnumerable<OutpatientCardRequest>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Complaints)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Complaints)
+                </td>
+                <td>
+                    <a asp-controller="Staff" asp-action="Approve" asp-route-id="@item.Id">Approve</a> |
+                    <a asp-controller="Staff" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
